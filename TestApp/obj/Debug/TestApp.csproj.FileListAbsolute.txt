@@ -1,0 +1,10 @@
+F:\TestDraco\TestApp\bin\Debug\TestApp.exe.config
+F:\TestDraco\TestApp\bin\Debug\TestApp.exe
+F:\TestDraco\TestApp\bin\Debug\TestApp.pdb
+F:\TestDraco\TestApp\bin\Debug\DracoWrapper.dll
+F:\TestDraco\TestApp\bin\Debug\DracoWrapper.pdb
+F:\TestDraco\TestApp\obj\Debug\TestApp.csproj.AssemblyReference.cache
+F:\TestDraco\TestApp\obj\Debug\TestApp.csproj.CoreCompileInputs.cache
+F:\TestDraco\TestApp\obj\Debug\TestApp.csproj.CopyComplete
+F:\TestDraco\TestApp\obj\Debug\TestApp.exe
+F:\TestDraco\TestApp\obj\Debug\TestApp.pdb

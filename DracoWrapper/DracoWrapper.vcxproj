@@ -1,0 +1,787 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>16.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{88d75f85-d163-41dc-bd9c-c7a1df9f8f3f}</ProjectGuid>
+    <RootNamespace>DracoWrapper</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+    <CLRSupport>true</CLRSupport>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_DEBUG;DRACOWRAPPER_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableUAC>false</EnableUAC>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;NDEBUG;DRACOWRAPPER_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableUAC>false</EnableUAC>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;DRACOWRAPPER_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <AdditionalIncludeDirectories>$(MSBuildProjectDirectory)\third_party\tinygltf;$(MSBuildProjectDirectory)\third_party\eigen;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>/Zc:twoPhase- %(AdditionalOptions)</AdditionalOptions>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableUAC>false</EnableUAC>
+      <AdditionalLibraryDirectories>$(ProjectDir)\draco;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <IgnoreSpecificDefaultLibraries>
+      </IgnoreSpecificDefaultLibraries>
+      <AdditionalDependencies>draco.lib</AdditionalDependencies>
+      <IgnoreAllDefaultLibraries>
+      </IgnoreAllDefaultLibraries>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;DRACOWRAPPER_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableUAC>false</EnableUAC>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="draco\animation\animation.h" />
+    <ClInclude Include="draco\animation\keyframe_animation.h" />
+    <ClInclude Include="draco\animation\keyframe_animation_decoder.h" />
+    <ClInclude Include="draco\animation\keyframe_animation_encoder.h" />
+    <ClInclude Include="draco\animation\node_animation_data.h" />
+    <ClInclude Include="draco\animation\skin.h" />
+    <ClInclude Include="draco\attributes\attribute_octahedron_transform.h" />
+    <ClInclude Include="draco\attributes\attribute_quantization_transform.h" />
+    <ClInclude Include="draco\attributes\attribute_transform.h" />
+    <ClInclude Include="draco\attributes\attribute_transform_data.h" />
+    <ClInclude Include="draco\attributes\attribute_transform_type.h" />
+    <ClInclude Include="draco\attributes\geometry_attribute.h" />
+    <ClInclude Include="draco\attributes\geometry_indices.h" />
+    <ClInclude Include="draco\attributes\point_attribute.h" />
+    <ClInclude Include="draco\compression\attributes\attributes_decoder.h" />
+    <ClInclude Include="draco\compression\attributes\attributes_decoder_interface.h" />
+    <ClInclude Include="draco\compression\attributes\attributes_encoder.h" />
+    <ClInclude Include="draco\compression\attributes\kd_tree_attributes_decoder.h" />
+    <ClInclude Include="draco\compression\attributes\kd_tree_attributes_encoder.h" />
+    <ClInclude Include="draco\compression\attributes\kd_tree_attributes_shared.h" />
+    <ClInclude Include="draco\compression\attributes\linear_sequencer.h" />
+    <ClInclude Include="draco\compression\attributes\mesh_attribute_indices_encoding_data.h" />
+    <ClInclude Include="draco\compression\attributes\normal_compression_utils.h" />
+    <ClInclude Include="draco\compression\attributes\points_sequencer.h" />
+    <ClInclude Include="draco\compression\attributes\point_d_vector.h" />
+    <ClInclude Include="draco\compression\attributes\prediction_schemes\mesh_prediction_scheme_constrained_multi_parallelogram_decoder.h" />
+    <ClInclude Include="draco\compression\attributes\prediction_schemes\mesh_prediction_scheme_constrained_multi_parallelogram_encoder.h" />
+    <ClInclude Include="draco\compression\attributes\prediction_schemes\mesh_prediction_scheme_constrained_multi_parallelogram_shared.h" />
+    <ClInclude Include="draco\compression\attributes\prediction_schemes\mesh_prediction_scheme_data.h" />
+    <ClInclude Include="draco\compression\attributes\prediction_schemes\mesh_prediction_scheme_decoder.h" />
+    <ClInclude Include="draco\compression\attributes\prediction_schemes\mesh_prediction_scheme_encoder.h" />
+    <ClInclude Include="draco\compression\attributes\prediction_schemes\mesh_prediction_scheme_geometric_normal_decoder.h" />
+    <ClInclude Include="draco\compression\attributes\prediction_schemes\mesh_prediction_scheme_geometric_normal_encoder.h" />
+    <ClInclude Include="draco\compression\attributes\prediction_schemes\mesh_prediction_scheme_geometric_normal_predictor_area.h" />
+    <ClInclude Include="draco\compression\attributes\prediction_schemes\mesh_prediction_scheme_geometric_normal_predictor_base.h" />
+    <ClInclude Include="draco\compression\attributes\prediction_schemes\mesh_prediction_scheme_multi_parallelogram_decoder.h" />
+    <ClInclude Include="draco\compression\attributes\prediction_schemes\mesh_prediction_scheme_multi_parallelogram_encoder.h" />
+    <ClInclude Include="draco\compression\attributes\prediction_schemes\mesh_prediction_scheme_parallelogram_decoder.h" />
+    <ClInclude Include="draco\compression\attributes\prediction_schemes\mesh_prediction_scheme_parallelogram_encoder.h" />
+    <ClInclude Include="draco\compression\attributes\prediction_schemes\mesh_prediction_scheme_parallelogram_shared.h" />
+    <ClInclude Include="draco\compression\attributes\prediction_schemes\mesh_prediction_scheme_tex_coords_decoder.h" />
+    <ClInclude Include="draco\compression\attributes\prediction_schemes\mesh_prediction_scheme_tex_coords_encoder.h" />
+    <ClInclude Include="draco\compression\attributes\prediction_schemes\mesh_prediction_scheme_tex_coords_portable_decoder.h" />
+    <ClInclude Include="draco\compression\attributes\prediction_schemes\mesh_prediction_scheme_tex_coords_portable_encoder.h" />
+    <ClInclude Include="draco\compression\attributes\prediction_schemes\mesh_prediction_scheme_tex_coords_portable_predictor.h" />
+    <ClInclude Include="draco\compression\attributes\prediction_schemes\prediction_scheme_decoder.h" />
+    <ClInclude Include="draco\compression\attributes\prediction_schemes\prediction_scheme_decoder_factory.h" />
+    <ClInclude Include="draco\compression\attributes\prediction_schemes\prediction_scheme_decoder_interface.h" />
+    <ClInclude Include="draco\compression\attributes\prediction_schemes\prediction_scheme_decoding_transform.h" />
+    <ClInclude Include="draco\compression\attributes\prediction_schemes\prediction_scheme_delta_decoder.h" />
+    <ClInclude Include="draco\compression\attributes\prediction_schemes\prediction_scheme_delta_encoder.h" />
+    <ClInclude Include="draco\compression\attributes\prediction_schemes\prediction_scheme_encoder.h" />
+    <ClInclude Include="draco\compression\attributes\prediction_schemes\prediction_scheme_encoder_factory.h" />
+    <ClInclude Include="draco\compression\attributes\prediction_schemes\prediction_scheme_encoder_interface.h" />
+    <ClInclude Include="draco\compression\attributes\prediction_schemes\prediction_scheme_encoding_transform.h" />
+    <ClInclude Include="draco\compression\attributes\prediction_schemes\prediction_scheme_factory.h" />
+    <ClInclude Include="draco\compression\attributes\prediction_schemes\prediction_scheme_interface.h" />
+    <ClInclude Include="draco\compression\attributes\prediction_schemes\prediction_scheme_normal_octahedron_canonicalized_decoding_transform.h" />
+    <ClInclude Include="draco\compression\attributes\prediction_schemes\prediction_scheme_normal_octahedron_canonicalized_encoding_transform.h" />
+    <ClInclude Include="draco\compression\attributes\prediction_schemes\prediction_scheme_normal_octahedron_canonicalized_transform_base.h" />
+    <ClInclude Include="draco\compression\attributes\prediction_schemes\prediction_scheme_normal_octahedron_decoding_transform.h" />
+    <ClInclude Include="draco\compression\attributes\prediction_schemes\prediction_scheme_normal_octahedron_encoding_transform.h" />
+    <ClInclude Include="draco\compression\attributes\prediction_schemes\prediction_scheme_normal_octahedron_transform_base.h" />
+    <ClInclude Include="draco\compression\attributes\prediction_schemes\prediction_scheme_wrap_decoding_transform.h" />
+    <ClInclude Include="draco\compression\attributes\prediction_schemes\prediction_scheme_wrap_encoding_transform.h" />
+    <ClInclude Include="draco\compression\attributes\prediction_schemes\prediction_scheme_wrap_transform_base.h" />
+    <ClInclude Include="draco\compression\attributes\sequential_attribute_decoder.h" />
+    <ClInclude Include="draco\compression\attributes\sequential_attribute_decoders_controller.h" />
+    <ClInclude Include="draco\compression\attributes\sequential_attribute_encoder.h" />
+    <ClInclude Include="draco\compression\attributes\sequential_attribute_encoders_controller.h" />
+    <ClInclude Include="draco\compression\attributes\sequential_integer_attribute_decoder.h" />
+    <ClInclude Include="draco\compression\attributes\sequential_integer_attribute_encoder.h" />
+    <ClInclude Include="draco\compression\attributes\sequential_normal_attribute_decoder.h" />
+    <ClInclude Include="draco\compression\attributes\sequential_normal_attribute_encoder.h" />
+    <ClInclude Include="draco\compression\attributes\sequential_quantization_attribute_decoder.h" />
+    <ClInclude Include="draco\compression\attributes\sequential_quantization_attribute_encoder.h" />
+    <ClInclude Include="draco\compression\bit_coders\adaptive_rans_bit_coding_shared.h" />
+    <ClInclude Include="draco\compression\bit_coders\adaptive_rans_bit_decoder.h" />
+    <ClInclude Include="draco\compression\bit_coders\adaptive_rans_bit_encoder.h" />
+    <ClInclude Include="draco\compression\bit_coders\direct_bit_decoder.h" />
+    <ClInclude Include="draco\compression\bit_coders\direct_bit_encoder.h" />
+    <ClInclude Include="draco\compression\bit_coders\folded_integer_bit_decoder.h" />
+    <ClInclude Include="draco\compression\bit_coders\folded_integer_bit_encoder.h" />
+    <ClInclude Include="draco\compression\bit_coders\rans_bit_decoder.h" />
+    <ClInclude Include="draco\compression\bit_coders\rans_bit_encoder.h" />
+    <ClInclude Include="draco\compression\bit_coders\symbol_bit_decoder.h" />
+    <ClInclude Include="draco\compression\bit_coders\symbol_bit_encoder.h" />
+    <ClInclude Include="draco\compression\config\compression_shared.h" />
+    <ClInclude Include="draco\compression\config\decoder_options.h" />
+    <ClInclude Include="draco\compression\config\draco_options.h" />
+    <ClInclude Include="draco\compression\config\encoder_options.h" />
+    <ClInclude Include="draco\compression\config\encoding_features.h" />
+    <ClInclude Include="draco\compression\decode.h" />
+    <ClInclude Include="draco\compression\draco_compression_options.h" />
+    <ClInclude Include="draco\compression\encode.h" />
+    <ClInclude Include="draco\compression\encode_base.h" />
+    <ClInclude Include="draco\compression\entropy\ans.h" />
+    <ClInclude Include="draco\compression\entropy\rans_symbol_coding.h" />
+    <ClInclude Include="draco\compression\entropy\rans_symbol_decoder.h" />
+    <ClInclude Include="draco\compression\entropy\rans_symbol_encoder.h" />
+    <ClInclude Include="draco\compression\entropy\shannon_entropy.h" />
+    <ClInclude Include="draco\compression\entropy\symbol_decoding.h" />
+    <ClInclude Include="draco\compression\entropy\symbol_encoding.h" />
+    <ClInclude Include="draco\compression\expert_encode.h" />
+    <ClInclude Include="draco\compression\mesh\mesh_decoder.h" />
+    <ClInclude Include="draco\compression\mesh\mesh_edgebreaker_decoder.h" />
+    <ClInclude Include="draco\compression\mesh\mesh_edgebreaker_decoder_impl.h" />
+    <ClInclude Include="draco\compression\mesh\mesh_edgebreaker_decoder_impl_interface.h" />
+    <ClInclude Include="draco\compression\mesh\mesh_edgebreaker_encoder.h" />
+    <ClInclude Include="draco\compression\mesh\mesh_edgebreaker_encoder_impl.h" />
+    <ClInclude Include="draco\compression\mesh\mesh_edgebreaker_encoder_impl_interface.h" />
+    <ClInclude Include="draco\compression\mesh\mesh_edgebreaker_shared.h" />
+    <ClInclude Include="draco\compression\mesh\mesh_edgebreaker_traversal_decoder.h" />
+    <ClInclude Include="draco\compression\mesh\mesh_edgebreaker_traversal_encoder.h" />
+    <ClInclude Include="draco\compression\mesh\mesh_edgebreaker_traversal_predictive_decoder.h" />
+    <ClInclude Include="draco\compression\mesh\mesh_edgebreaker_traversal_predictive_encoder.h" />
+    <ClInclude Include="draco\compression\mesh\mesh_edgebreaker_traversal_valence_decoder.h" />
+    <ClInclude Include="draco\compression\mesh\mesh_edgebreaker_traversal_valence_encoder.h" />
+    <ClInclude Include="draco\compression\mesh\mesh_encoder.h" />
+    <ClInclude Include="draco\compression\mesh\mesh_sequential_decoder.h" />
+    <ClInclude Include="draco\compression\mesh\mesh_sequential_encoder.h" />
+    <ClInclude Include="draco\compression\mesh\traverser\depth_first_traverser.h" />
+    <ClInclude Include="draco\compression\mesh\traverser\max_prediction_degree_traverser.h" />
+    <ClInclude Include="draco\compression\mesh\traverser\mesh_attribute_indices_encoding_observer.h" />
+    <ClInclude Include="draco\compression\mesh\traverser\mesh_traversal_sequencer.h" />
+    <ClInclude Include="draco\compression\mesh\traverser\traverser_base.h" />
+    <ClInclude Include="draco\compression\point_cloud\algorithms\dynamic_integer_points_kd_tree_decoder.h" />
+    <ClInclude Include="draco\compression\point_cloud\algorithms\dynamic_integer_points_kd_tree_encoder.h" />
+    <ClInclude Include="draco\compression\point_cloud\algorithms\float_points_tree_decoder.h" />
+    <ClInclude Include="draco\compression\point_cloud\algorithms\float_points_tree_encoder.h" />
+    <ClInclude Include="draco\compression\point_cloud\algorithms\integer_points_kd_tree_decoder.h" />
+    <ClInclude Include="draco\compression\point_cloud\algorithms\integer_points_kd_tree_encoder.h" />
+    <ClInclude Include="draco\compression\point_cloud\algorithms\point_cloud_compression_method.h" />
+    <ClInclude Include="draco\compression\point_cloud\algorithms\point_cloud_types.h" />
+    <ClInclude Include="draco\compression\point_cloud\algorithms\quantize_points_3.h" />
+    <ClInclude Include="draco\compression\point_cloud\algorithms\queuing_policy.h" />
+    <ClInclude Include="draco\compression\point_cloud\point_cloud_decoder.h" />
+    <ClInclude Include="draco\compression\point_cloud\point_cloud_encoder.h" />
+    <ClInclude Include="draco\compression\point_cloud\point_cloud_kd_tree_decoder.h" />
+    <ClInclude Include="draco\compression\point_cloud\point_cloud_kd_tree_encoder.h" />
+    <ClInclude Include="draco\compression\point_cloud\point_cloud_sequential_decoder.h" />
+    <ClInclude Include="draco\compression\point_cloud\point_cloud_sequential_encoder.h" />
+    <ClInclude Include="draco\core\bit_utils.h" />
+    <ClInclude Include="draco\core\bounding_box.h" />
+    <ClInclude Include="draco\core\constants.h" />
+    <ClInclude Include="draco\core\cycle_timer.h" />
+    <ClInclude Include="draco\core\data_buffer.h" />
+    <ClInclude Include="draco\core\decoder_buffer.h" />
+    <ClInclude Include="draco\core\divide.h" />
+    <ClInclude Include="draco\core\draco_index_type.h" />
+    <ClInclude Include="draco\core\draco_index_type_vector.h" />
+    <ClInclude Include="draco\core\draco_test_base.h" />
+    <ClInclude Include="draco\core\draco_test_utils.h" />
+    <ClInclude Include="draco\core\draco_types.h" />
+    <ClInclude Include="draco\core\draco_version.h" />
+    <ClInclude Include="draco\core\encoder_buffer.h" />
+    <ClInclude Include="draco\core\hash_utils.h" />
+    <ClInclude Include="draco\core\macros.h" />
+    <ClInclude Include="draco\core\math_utils.h" />
+    <ClInclude Include="draco\core\options.h" />
+    <ClInclude Include="draco\core\quantization_utils.h" />
+    <ClInclude Include="draco\core\status.h" />
+    <ClInclude Include="draco\core\status_or.h" />
+    <ClInclude Include="draco\core\varint_decoding.h" />
+    <ClInclude Include="draco\core\varint_encoding.h" />
+    <ClInclude Include="draco\core\vector_d.h" />
+    <ClInclude Include="draco\draco_features.h" />
+    <ClInclude Include="draco\io\file_reader_factory.h" />
+    <ClInclude Include="draco\io\file_reader_interface.h" />
+    <ClInclude Include="draco\io\file_reader_test_common.h" />
+    <ClInclude Include="draco\io\file_utils.h" />
+    <ClInclude Include="draco\io\file_writer_factory.h" />
+    <ClInclude Include="draco\io\file_writer_interface.h" />
+    <ClInclude Include="draco\io\file_writer_utils.h" />
+    <ClInclude Include="draco\io\gltf_decoder.h" />
+    <ClInclude Include="draco\io\gltf_encoder.h" />
+    <ClInclude Include="draco\io\gltf_test_helper.h" />
+    <ClInclude Include="draco\io\gltf_utils.h" />
+    <ClInclude Include="draco\io\image_compression_options.h" />
+    <ClInclude Include="draco\io\mesh_io.h" />
+    <ClInclude Include="draco\io\obj_decoder.h" />
+    <ClInclude Include="draco\io\obj_encoder.h" />
+    <ClInclude Include="draco\io\parser_utils.h" />
+    <ClInclude Include="draco\io\ply_decoder.h" />
+    <ClInclude Include="draco\io\ply_encoder.h" />
+    <ClInclude Include="draco\io\ply_property_reader.h" />
+    <ClInclude Include="draco\io\ply_property_writer.h" />
+    <ClInclude Include="draco\io\ply_reader.h" />
+    <ClInclude Include="draco\io\point_cloud_io.h" />
+    <ClInclude Include="draco\io\scene_io.h" />
+    <ClInclude Include="draco\io\stdio_file_reader.h" />
+    <ClInclude Include="draco\io\stdio_file_writer.h" />
+    <ClInclude Include="draco\io\stl_decoder.h" />
+    <ClInclude Include="draco\io\stl_encoder.h" />
+    <ClInclude Include="draco\io\texture_io.h" />
+    <ClInclude Include="draco\io\tiny_gltf_utils.h" />
+    <ClInclude Include="draco\material\material.h" />
+    <ClInclude Include="draco\material\material_library.h" />
+    <ClInclude Include="draco\material\material_utils.h" />
+    <ClInclude Include="draco\maya\draco_maya_plugin.h" />
+    <ClInclude Include="draco\mesh\corner_table.h" />
+    <ClInclude Include="draco\mesh\corner_table_iterators.h" />
+    <ClInclude Include="draco\mesh\mesh.h" />
+    <ClInclude Include="draco\mesh\mesh_are_equivalent.h" />
+    <ClInclude Include="draco\mesh\mesh_attribute_corner_table.h" />
+    <ClInclude Include="draco\mesh\mesh_cleanup.h" />
+    <ClInclude Include="draco\mesh\mesh_connected_components.h" />
+    <ClInclude Include="draco\mesh\mesh_features.h" />
+    <ClInclude Include="draco\mesh\mesh_indices.h" />
+    <ClInclude Include="draco\mesh\mesh_misc_functions.h" />
+    <ClInclude Include="draco\mesh\mesh_splitter.h" />
+    <ClInclude Include="draco\mesh\mesh_stripifier.h" />
+    <ClInclude Include="draco\mesh\mesh_utils.h" />
+    <ClInclude Include="draco\mesh\triangle_soup_mesh_builder.h" />
+    <ClInclude Include="draco\mesh\valence_cache.h" />
+    <ClInclude Include="draco\metadata\geometry_metadata.h" />
+    <ClInclude Include="draco\metadata\metadata.h" />
+    <ClInclude Include="draco\metadata\metadata_decoder.h" />
+    <ClInclude Include="draco\metadata\metadata_encoder.h" />
+    <ClInclude Include="draco\metadata\property_table.h" />
+    <ClInclude Include="draco\metadata\structural_metadata.h" />
+    <ClInclude Include="draco\point_cloud\point_cloud.h" />
+    <ClInclude Include="draco\point_cloud\point_cloud_builder.h" />
+    <ClInclude Include="draco\scene\instance_array.h" />
+    <ClInclude Include="draco\scene\light.h" />
+    <ClInclude Include="draco\scene\mesh_group.h" />
+    <ClInclude Include="draco\scene\scene.h" />
+    <ClInclude Include="draco\scene\scene_are_equivalent.h" />
+    <ClInclude Include="draco\scene\scene_indices.h" />
+    <ClInclude Include="draco\scene\scene_node.h" />
+    <ClInclude Include="draco\scene\scene_utils.h" />
+    <ClInclude Include="draco\scene\trs_matrix.h" />
+    <ClInclude Include="draco\texture\source_image.h" />
+    <ClInclude Include="draco\texture\texture.h" />
+    <ClInclude Include="draco\texture\texture_library.h" />
+    <ClInclude Include="draco\texture\texture_map.h" />
+    <ClInclude Include="draco\texture\texture_transform.h" />
+    <ClInclude Include="draco\texture\texture_utils.h" />
+    <ClInclude Include="draco\tools\draco_transcoder_lib.h" />
+    <ClInclude Include="draco\unity\draco_unity_plugin.h" />
+    <ClInclude Include="draco_compression_optitons.h" />
+    <ClInclude Include="file_reader.h" />
+    <ClInclude Include="file_writer.h" />
+    <ClInclude Include="framework.h" />
+    <ClInclude Include="gltf_decoder.h" />
+    <ClInclude Include="gltf_encoder.h" />
+    <ClInclude Include="mesh.h" />
+    <ClInclude Include="pch.h" />
+    <ClInclude Include="scene.h" />
+    <ClInclude Include="scene_utils.h" />
+    <ClInclude Include="status.h" />
+    <ClInclude Include="status_or.h" />
+    <ClInclude Include="third_party\eigen\blas\BandTriangularSolver.h" />
+    <ClInclude Include="third_party\eigen\blas\common.h" />
+    <ClInclude Include="third_party\eigen\blas\GeneralRank1Update.h" />
+    <ClInclude Include="third_party\eigen\blas\level1_cplx_impl.h" />
+    <ClInclude Include="third_party\eigen\blas\level1_impl.h" />
+    <ClInclude Include="third_party\eigen\blas\level1_real_impl.h" />
+    <ClInclude Include="third_party\eigen\blas\level2_cplx_impl.h" />
+    <ClInclude Include="third_party\eigen\blas\level2_impl.h" />
+    <ClInclude Include="third_party\eigen\blas\level2_real_impl.h" />
+    <ClInclude Include="third_party\eigen\blas\level3_impl.h" />
+    <ClInclude Include="third_party\eigen\blas\PackedSelfadjointProduct.h" />
+    <ClInclude Include="third_party\eigen\blas\PackedTriangularMatrixVector.h" />
+    <ClInclude Include="third_party\eigen\blas\PackedTriangularSolverVector.h" />
+    <ClInclude Include="third_party\eigen\blas\Rank2Update.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Cholesky\LDLT.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Cholesky\LLT.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Cholesky\LLT_LAPACKE.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\CholmodSupport\CholmodSupport.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Core\arch\AltiVec\Complex.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Core\arch\AltiVec\MathFunctions.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Core\arch\AltiVec\MatrixProduct.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Core\arch\AltiVec\MatrixProductCommon.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Core\arch\AltiVec\MatrixProductMMA.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Core\arch\AltiVec\PacketMath.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Core\arch\AVX512\Complex.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Core\arch\AVX512\MathFunctions.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Core\arch\AVX512\PacketMath.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Core\arch\AVX512\TypeCasting.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Core\arch\AVX\Complex.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Core\arch\AVX\MathFunctions.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Core\arch\AVX\PacketMath.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Core\arch\AVX\TypeCasting.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Core\arch\CUDA\Complex.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Core\arch\Default\BFloat16.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Core\arch\Default\ConjHelper.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Core\arch\Default\GenericPacketMathFunctions.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Core\arch\Default\GenericPacketMathFunctionsFwd.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Core\arch\Default\Half.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Core\arch\Default\Settings.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Core\arch\Default\TypeCasting.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Core\arch\GPU\MathFunctions.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Core\arch\GPU\PacketMath.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Core\arch\GPU\TypeCasting.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Core\arch\HIP\hcc\math_constants.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Core\arch\MSA\Complex.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Core\arch\MSA\MathFunctions.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Core\arch\MSA\PacketMath.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Core\arch\NEON\Complex.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Core\arch\NEON\GeneralBlockPanelKernel.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Core\arch\NEON\MathFunctions.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Core\arch\NEON\PacketMath.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Core\arch\NEON\TypeCasting.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Core\arch\SSE\Complex.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Core\arch\SSE\MathFunctions.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Core\arch\SSE\PacketMath.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Core\arch\SSE\TypeCasting.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Core\arch\SVE\MathFunctions.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Core\arch\SVE\PacketMath.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Core\arch\SVE\TypeCasting.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Core\arch\SYCL\InteropHeaders.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Core\arch\SYCL\MathFunctions.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Core\arch\SYCL\PacketMath.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Core\arch\SYCL\SyclMemoryModel.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Core\arch\SYCL\TypeCasting.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Core\arch\ZVector\Complex.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Core\arch\ZVector\MathFunctions.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Core\arch\ZVector\PacketMath.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Core\ArithmeticSequence.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Core\Array.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Core\ArrayBase.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Core\ArrayWrapper.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Core\Assign.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Core\AssignEvaluator.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Core\Assign_MKL.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Core\BandMatrix.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Core\Block.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Core\BooleanRedux.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Core\CommaInitializer.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Core\ConditionEstimator.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Core\CoreEvaluators.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Core\CoreIterators.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Core\CwiseBinaryOp.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Core\CwiseNullaryOp.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Core\CwiseTernaryOp.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Core\CwiseUnaryOp.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Core\CwiseUnaryView.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Core\DenseBase.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Core\DenseCoeffsBase.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Core\DenseStorage.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Core\Diagonal.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Core\DiagonalMatrix.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Core\DiagonalProduct.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Core\Dot.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Core\EigenBase.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Core\ForceAlignedAccess.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Core\functors\AssignmentFunctors.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Core\functors\BinaryFunctors.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Core\functors\NullaryFunctors.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Core\functors\StlFunctors.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Core\functors\TernaryFunctors.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Core\functors\UnaryFunctors.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Core\Fuzzy.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Core\GeneralProduct.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Core\GenericPacketMath.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Core\GlobalFunctions.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Core\IndexedView.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Core\Inverse.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Core\IO.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Core\Map.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Core\MapBase.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Core\MathFunctions.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Core\MathFunctionsImpl.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Core\Matrix.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Core\MatrixBase.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Core\NestByValue.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Core\NoAlias.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Core\NumTraits.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Core\PartialReduxEvaluator.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Core\PermutationMatrix.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Core\PlainObjectBase.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Core\Product.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Core\ProductEvaluators.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Core\products\GeneralBlockPanelKernel.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Core\products\GeneralMatrixMatrix.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Core\products\GeneralMatrixMatrixTriangular.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Core\products\GeneralMatrixMatrixTriangular_BLAS.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Core\products\GeneralMatrixMatrix_BLAS.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Core\products\GeneralMatrixVector.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Core\products\GeneralMatrixVector_BLAS.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Core\products\Parallelizer.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Core\products\SelfadjointMatrixMatrix.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Core\products\SelfadjointMatrixMatrix_BLAS.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Core\products\SelfadjointMatrixVector.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Core\products\SelfadjointMatrixVector_BLAS.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Core\products\SelfadjointProduct.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Core\products\SelfadjointRank2Update.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Core\products\TriangularMatrixMatrix.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Core\products\TriangularMatrixMatrix_BLAS.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Core\products\TriangularMatrixVector.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Core\products\TriangularMatrixVector_BLAS.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Core\products\TriangularSolverMatrix.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Core\products\TriangularSolverMatrix_BLAS.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Core\products\TriangularSolverVector.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Core\Random.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Core\Redux.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Core\Ref.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Core\Replicate.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Core\Reshaped.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Core\ReturnByValue.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Core\Reverse.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Core\Select.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Core\SelfAdjointView.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Core\SelfCwiseBinaryOp.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Core\Solve.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Core\SolverBase.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Core\SolveTriangular.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Core\StableNorm.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Core\StlIterators.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Core\Stride.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Core\Swap.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Core\Transpose.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Core\Transpositions.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Core\TriangularMatrix.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Core\util\BlasUtil.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Core\util\ConfigureVectorization.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Core\util\Constants.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Core\util\DisableStupidWarnings.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Core\util\ForwardDeclarations.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Core\util\IndexedViewHelper.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Core\util\IntegralConstant.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Core\util\Macros.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Core\util\Memory.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Core\util\Meta.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Core\util\MKL_support.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Core\util\NonMPL2.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Core\util\ReenableStupidWarnings.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Core\util\ReshapedHelper.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Core\util\StaticAssert.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Core\util\SymbolicIndex.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Core\util\XprHelper.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Core\VectorBlock.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Core\VectorwiseOp.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Core\Visitor.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Eigenvalues\ComplexEigenSolver.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Eigenvalues\ComplexSchur.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Eigenvalues\ComplexSchur_LAPACKE.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Eigenvalues\EigenSolver.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Eigenvalues\GeneralizedEigenSolver.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Eigenvalues\GeneralizedSelfAdjointEigenSolver.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Eigenvalues\HessenbergDecomposition.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Eigenvalues\MatrixBaseEigenvalues.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Eigenvalues\RealQZ.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Eigenvalues\RealSchur.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Eigenvalues\RealSchur_LAPACKE.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Eigenvalues\SelfAdjointEigenSolver.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Eigenvalues\SelfAdjointEigenSolver_LAPACKE.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Eigenvalues\Tridiagonalization.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Geometry\AlignedBox.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Geometry\AngleAxis.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Geometry\arch\Geometry_SIMD.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Geometry\EulerAngles.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Geometry\Homogeneous.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Geometry\Hyperplane.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Geometry\OrthoMethods.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Geometry\ParametrizedLine.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Geometry\Quaternion.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Geometry\Rotation2D.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Geometry\RotationBase.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Geometry\Scaling.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Geometry\Transform.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Geometry\Translation.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Geometry\Umeyama.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Householder\BlockHouseholder.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Householder\Householder.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Householder\HouseholderSequence.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\IterativeLinearSolvers\BasicPreconditioners.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\IterativeLinearSolvers\BiCGSTAB.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\IterativeLinearSolvers\ConjugateGradient.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\IterativeLinearSolvers\IncompleteCholesky.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\IterativeLinearSolvers\IncompleteLUT.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\IterativeLinearSolvers\IterativeSolverBase.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\IterativeLinearSolvers\LeastSquareConjugateGradient.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\IterativeLinearSolvers\SolveWithGuess.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\Jacobi\Jacobi.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\KLUSupport\KLUSupport.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\LU\arch\InverseSize4.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\LU\Determinant.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\LU\FullPivLU.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\LU\InverseImpl.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\LU\PartialPivLU.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\LU\PartialPivLU_LAPACKE.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\MetisSupport\MetisSupport.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\misc\blas.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\misc\Image.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\misc\Kernel.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\misc\lapack.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\misc\lapacke.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\misc\lapacke_mangling.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\misc\RealSvd2x2.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\OrderingMethods\Amd.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\OrderingMethods\Eigen_Colamd.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\OrderingMethods\Ordering.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\PardisoSupport\PardisoSupport.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\PaStiXSupport\PaStiXSupport.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\plugins\ArrayCwiseBinaryOps.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\plugins\ArrayCwiseUnaryOps.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\plugins\BlockMethods.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\plugins\CommonCwiseBinaryOps.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\plugins\CommonCwiseUnaryOps.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\plugins\IndexedViewMethods.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\plugins\MatrixCwiseBinaryOps.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\plugins\MatrixCwiseUnaryOps.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\plugins\ReshapedMethods.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\QR\ColPivHouseholderQR.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\QR\ColPivHouseholderQR_LAPACKE.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\QR\CompleteOrthogonalDecomposition.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\QR\FullPivHouseholderQR.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\QR\HouseholderQR.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\QR\HouseholderQR_LAPACKE.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\SparseCholesky\SimplicialCholesky.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\SparseCholesky\SimplicialCholesky_impl.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\SparseCore\AmbiVector.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\SparseCore\CompressedStorage.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\SparseCore\ConservativeSparseSparseProduct.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\SparseCore\MappedSparseMatrix.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\SparseCore\SparseAssign.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\SparseCore\SparseBlock.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\SparseCore\SparseColEtree.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\SparseCore\SparseCompressedBase.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\SparseCore\SparseCwiseBinaryOp.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\SparseCore\SparseCwiseUnaryOp.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\SparseCore\SparseDenseProduct.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\SparseCore\SparseDiagonalProduct.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\SparseCore\SparseDot.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\SparseCore\SparseFuzzy.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\SparseCore\SparseMap.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\SparseCore\SparseMatrix.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\SparseCore\SparseMatrixBase.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\SparseCore\SparsePermutation.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\SparseCore\SparseProduct.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\SparseCore\SparseRedux.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\SparseCore\SparseRef.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\SparseCore\SparseSelfAdjointView.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\SparseCore\SparseSolverBase.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\SparseCore\SparseSparseProductWithPruning.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\SparseCore\SparseTranspose.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\SparseCore\SparseTriangularView.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\SparseCore\SparseUtil.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\SparseCore\SparseVector.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\SparseCore\SparseView.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\SparseCore\TriangularSolver.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\SparseLU\SparseLU.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\SparseLU\SparseLUImpl.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\SparseLU\SparseLU_column_bmod.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\SparseLU\SparseLU_column_dfs.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\SparseLU\SparseLU_copy_to_ucol.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\SparseLU\SparseLU_gemm_kernel.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\SparseLU\SparseLU_heap_relax_snode.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\SparseLU\SparseLU_kernel_bmod.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\SparseLU\SparseLU_Memory.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\SparseLU\SparseLU_panel_bmod.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\SparseLU\SparseLU_panel_dfs.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\SparseLU\SparseLU_pivotL.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\SparseLU\SparseLU_pruneL.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\SparseLU\SparseLU_relax_snode.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\SparseLU\SparseLU_Structs.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\SparseLU\SparseLU_SupernodalMatrix.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\SparseLU\SparseLU_Utils.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\SparseQR\SparseQR.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\SPQRSupport\SuiteSparseQRSupport.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\StlSupport\details.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\StlSupport\StdDeque.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\StlSupport\StdList.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\StlSupport\StdVector.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\SuperLUSupport\SuperLUSupport.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\SVD\BDCSVD.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\SVD\JacobiSVD.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\SVD\JacobiSVD_LAPACKE.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\SVD\SVDBase.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\SVD\UpperBidiagonalization.h" />
+    <ClInclude Include="third_party\eigen\Eigen\src\UmfPackSupport\UmfPackSupport.h" />
+    <ClInclude Include="third_party\eigen\lapack\lapack_common.h" />
+    <ClInclude Include="third_party\filesystem\include\ghc\filesystem.hpp" />
+    <ClInclude Include="third_party\filesystem\include\ghc\fs_fwd.hpp" />
+    <ClInclude Include="third_party\filesystem\include\ghc\fs_impl.hpp" />
+    <ClInclude Include="third_party\filesystem\include\ghc\fs_std.hpp" />
+    <ClInclude Include="third_party\filesystem\include\ghc\fs_std_fwd.hpp" />
+    <ClInclude Include="third_party\filesystem\include\ghc\fs_std_impl.hpp" />
+    <ClInclude Include="third_party\tinygltf\json.hpp" />
+    <ClInclude Include="third_party\tinygltf\stb_image.h" />
+    <ClInclude Include="third_party\tinygltf\stb_image_write.h" />
+    <ClInclude Include="third_party\tinygltf\tests\catch.hpp" />
+    <ClInclude Include="third_party\tinygltf\tiny_gltf.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="dllmain.cpp" />
+    <ClCompile Include="file_reader.cpp" />
+    <ClCompile Include="file_writer.cpp" />
+    <ClCompile Include="pch.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="third_party\eigen\Eigen\Cholesky" />
+    <None Include="third_party\eigen\Eigen\CholmodSupport" />
+    <None Include="third_party\eigen\Eigen\Core" />
+    <None Include="third_party\eigen\Eigen\Dense" />
+    <None Include="third_party\eigen\Eigen\Eigen" />
+    <None Include="third_party\eigen\Eigen\Eigenvalues" />
+    <None Include="third_party\eigen\Eigen\Geometry" />
+    <None Include="third_party\eigen\Eigen\Householder" />
+    <None Include="third_party\eigen\Eigen\IterativeLinearSolvers" />
+    <None Include="third_party\eigen\Eigen\Jacobi" />
+    <None Include="third_party\eigen\Eigen\KLUSupport" />
+    <None Include="third_party\eigen\Eigen\LU" />
+    <None Include="third_party\eigen\Eigen\MetisSupport" />
+    <None Include="third_party\eigen\Eigen\OrderingMethods" />
+    <None Include="third_party\eigen\Eigen\PardisoSupport" />
+    <None Include="third_party\eigen\Eigen\PaStiXSupport" />
+    <None Include="third_party\eigen\Eigen\QR" />
+    <None Include="third_party\eigen\Eigen\QtAlignedMalloc" />
+    <None Include="third_party\eigen\Eigen\Sparse" />
+    <None Include="third_party\eigen\Eigen\SparseCholesky" />
+    <None Include="third_party\eigen\Eigen\SparseCore" />
+    <None Include="third_party\eigen\Eigen\SparseLU" />
+    <None Include="third_party\eigen\Eigen\SparseQR" />
+    <None Include="third_party\eigen\Eigen\SPQRSupport" />
+    <None Include="third_party\eigen\Eigen\StdDeque" />
+    <None Include="third_party\eigen\Eigen\StdList" />
+    <None Include="third_party\eigen\Eigen\StdVector" />
+    <None Include="third_party\eigen\Eigen\SuperLUSupport" />
+    <None Include="third_party\eigen\Eigen\SVD" />
+    <None Include="third_party\eigen\Eigen\UmfPackSupport" />
+    <None Include="third_party\tinygltf\models\BoundsChecking\simpleTriangle.bin" />
+    <None Include="third_party\tinygltf\models\Cube-texture-ext\Cube.bin" />
+    <None Include="third_party\tinygltf\models\Cube\Cube.bin" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

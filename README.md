@@ -14,7 +14,7 @@ This a wrapper project to use google's [Draco Compression](https://github.com/go
 This repo is primarily managed by [E-verse](https://www.e-verse.co/) and by [People Like You™](https://github.com/EverseDevelopment/DracoWrapper/pulse).
 
 ## Help improve this repo
-If you're interested in contributing to this repo, just submit a [pull request](https://github.com/EverseDevelopment/DracoWrapper/pulls) or a [feature request](https://github.com/EverseDevelopment/DracoWrapper/issues) .
+If you're interested in contributing to this repo, just submit a [pull request](https://github.com/EverseDevelopment/DracoWrapper/pulls) or a [feature request](https://github.com/EverseDevelopment/DracoWrapper/issues).
 
 ## About us ##
 

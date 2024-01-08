@@ -17,6 +17,6 @@ jobs:
       with:
         dotnet-version: '3.1.301' # Set this to your .NET Core version
     - name: Build C# project
-      run: dotnet build TestApp/TestApp.csproj
+      run: dotnet build TestApp/TestApp.csproj --configuration Release --no-restore
     - name: Run C# project
       run: dotnet run --project TestApp/TestApp.csproj

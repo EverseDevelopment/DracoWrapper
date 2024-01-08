@@ -2,26 +2,22 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
   <metadata>
     <id>Draco_transcoder</id>
-    <version>3.3.0</version>
+    <version>3.3.1</version>
     <title>Draco_transcoder</title>
     <authors>e-verse</authors>
     <owners>e-verse</owners>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <licenseUrl>https://licenses.nuget.org/MIT</licenseUrl>
-    <icon>lib\EverseLogo-01.png</icon>
+    <icon>EverseLogo.png</icon>
     <projectUrl>https://github.com/EverseDevelopment/DracoWrapper</projectUrl>
     <description>Library using google's Draco Compression to compress GLTF and GLB files</description>
     <releaseNotes>First release</releaseNotes>
-    <copyright>Copyright ©  2022</copyright>
+    <copyright>Copyright ©  2023</copyright>
     <tags>Draco e-verse</tags>
   </metadata>
   <files>
-    <file src="lib\net471\DracoWrapper.dll" target="lib\net471\DracoWrapper.dll" />
-    <file src="lib\net471\msvcp140.dll" target="lib\net471\msvcp140.dll" />
-    <file src="lib\net471\ucrtbase.dll" target="lib\net471\ucrtbase.dll" />
-    <file src="lib\net471\vcruntime140.dll" target="lib\net471\vcruntime140.dll" />
-    <file src="lib\net471\vcruntime140_1.dll" target="lib\net471\vcruntime140_1.dll" />
-    <file src="lib\EverseLogo-01.png" target="lib\EverseLogo-01.png" />
+    <file src="..\x64\Release\DracoWrapper.dll" target="..\x64\Release\DracoWrapper.dll" />
+    <file src="EverseLogo.png" target="EverseLogo.png" />
     <file src="License.txt" target="License.txt" />
   </files>
 </package>

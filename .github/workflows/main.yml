@@ -17,7 +17,7 @@ jobs:
     - name: Build C++ project
       run: |
         g++ -o pch pch.cpp
-        ./myCppApp
+        ./DracoWrapper
 
   build_csharp:
     runs-on: windows-latest
@@ -29,6 +29,6 @@ jobs:
       with:
         dotnet-version: '3.1.301' # Set this to your .NET Core version
     - name: Build C# project
-      run: dotnet build MyCsharpProject.sln
+      run: dotnet build TestDraco.sln
     - name: Run C# project
-      run: dotnet run --project MyCsharpProject/MyCsharpProject.csproj
+      run: dotnet run --project TestApp/TestApp.csproj

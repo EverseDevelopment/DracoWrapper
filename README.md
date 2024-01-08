@@ -1,7 +1,7 @@
 # Draco C# Wrapper
 
 <p align="center">
-<img width="350px" src="https://s3.amazonaws.com/everse.assets/GithubReadme/draco3d-vert.svg" />
+<img width="350px"  src="https://s3.amazonaws.com/everse.assets/GithubReadme/draco3d-vert.svg" />
 </p>
 
 # Nuget Package

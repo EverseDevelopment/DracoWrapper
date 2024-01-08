@@ -1,6 +1,10 @@
 # Draco C# Wrapper
 
-[<img src="https://s3.amazonaws.com/everse.assets/GithubReadme/GithubDraco-01.png">](https://github.com/EverseDevelopment/DracoWrapper/wiki)
+<p align="center">
+<img width="350px" src="https://s3.amazonaws.com/everse.assets/GithubReadme/draco3d-vert.svg" />
+</p>
+
+
 <br/>
 
 # Nuget Package

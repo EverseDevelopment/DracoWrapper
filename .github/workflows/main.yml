@@ -16,7 +16,7 @@ jobs:
       run: sudo apt-get update && sudo apt-get install build-essential
     - name: Build C++ project
       run: |
-        g++ -o myCppApp myCppSource.cpp
+        g++ -o pch pch.cpp
         ./myCppApp
 
   build_csharp:

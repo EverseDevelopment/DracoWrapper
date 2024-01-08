@@ -1,4 +1,4 @@
-name: C++ and C# CI
+name: Build and Run C++ and C# Projects
 
 on:
   push:
@@ -7,16 +7,21 @@ on:
     branches: [ main ]
 
 jobs:
-  build_csharp:
+  build_and_run:
     runs-on: windows-latest
 
     steps:
     - uses: actions/checkout@v2
-    - name: Set up .NET Core
-      uses: actions/setup-dotnet@v1
-      with:
-        dotnet-version: '3.1.301' # Set this to your .NET Core version
+
+    # Set up MSBuild
+    - name: Set up MSBuild path
+      uses: microsoft/setup-msbuild@v1.0.2
+
+    # Build C++ project
+    - name: Build C++ project
+      run: msbuild TestDraco.sln -property:Configuration=Release -property:Platform="x64" -target:pch.cpp
+
+    # Build C# project
     - name: Build C# project
-      run: dotnet build TestApp/TestApp.csproj --configuration Release --no-restore
-    - name: Run C# project
-      run: dotnet run --project TestApp/TestApp.csproj
+      run: msbuild TestDraco.sln -property:Configuration=Release -property:Platform="x64" -target:TestApp.csproj
+

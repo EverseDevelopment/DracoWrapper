@@ -1,0 +1,41 @@
+name: Build and Package
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: '5.0.x' # Specify the .NET version
+
+    - name: Restore dependencies
+      run: dotnet restore
+
+    - name: Build
+      run: dotnet build --configuration Release --no-restore
+
+    - name: Test
+      run: dotnet test --no-restore --verbosity normal
+
+    - name: Pack
+      run: dotnet pack --configuration Release --no-build --output nupkgs
+
+    - name: Publish NuGet Package
+      uses: rohith/publish-nuget@v2
+      with:
+        # NuGet package id, e.g., 'Draco_transcoder'
+        PACKAGE_NAME: 'Draco_transcoder' 
+        # Path to the .nupkg file or the project directory
+        PROJECT_FILE_PATH: './path/to/your/csproj/or/nupkg'
+        # NuGet api key
+        NUGET_KEY: ${{secrets.NUGET_API_KEY}}

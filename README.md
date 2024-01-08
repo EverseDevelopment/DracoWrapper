@@ -4,9 +4,6 @@
 <img width="350px" src="https://s3.amazonaws.com/everse.assets/GithubReadme/draco3d-vert.svg" />
 </p>
 
-
-<br/>
-
 # Nuget Package
 [Nuget Package](https://www.nuget.org/packages/Draco_transcoder)
 

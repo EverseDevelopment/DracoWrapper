@@ -23,5 +23,5 @@ jobs:
 
     - name: Create NuGet package
       run: |
-        nuget pack Draco_transcoder.nuspec -Properties Configuration=Release
+        nuget pack Nuget/Draco_transcoder.nuspec -Properties Configuration=Release
 

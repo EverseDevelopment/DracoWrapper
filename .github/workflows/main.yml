@@ -19,9 +19,9 @@ jobs:
 
     # Build C++ project
     - name: Build C++ project
-      run: msbuild TestDraco.sln -property:Configuration=Release -property:Platform="x64" -target:pch.cpp
+      run: msbuild TestDraco.sln -property:Configuration=Release -property:Platform="x64" -target:pch
 
     # Build C# project
     - name: Build C# project
-      run: msbuild TestDraco.sln -property:Configuration=Release -property:Platform="x64" -target:TestApp.csproj
+      run: msbuild TestDraco.sln -property:Configuration=Release -property:Platform="x64" -target:TestApp
 

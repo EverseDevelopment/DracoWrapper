@@ -7,18 +7,6 @@ on:
     branches: [ main ]
 
 jobs:
-  build_cpp:
-    runs-on: ubuntu-latest
-
-    steps:
-    - uses: actions/checkout@v2
-    - name: Set up C++ environment
-      run: sudo apt-get update && sudo apt-get install build-essential
-    - name: Build C++ project
-      run: |
-        g++ -o pch pch.cpp
-        ./DracoWrapper
-
   build_csharp:
     runs-on: windows-latest
 
@@ -29,6 +17,6 @@ jobs:
       with:
         dotnet-version: '3.1.301' # Set this to your .NET Core version
     - name: Build C# project
-      run: dotnet build TestDraco.sln
+      run: dotnet build TestApp/TestApp.csproj
     - name: Run C# project
       run: dotnet run --project TestApp/TestApp.csproj

@@ -8,3 +8,7 @@ F:\TestDraco\TestApp\obj\Debug\TestApp.csproj.CoreCompileInputs.cache
 F:\TestDraco\TestApp\obj\Debug\TestApp.csproj.CopyComplete
 F:\TestDraco\TestApp\obj\Debug\TestApp.exe
 F:\TestDraco\TestApp\obj\Debug\TestApp.pdb
+F:\01.Upwork_Customers\Draco\TestDraco\TestApp\obj\Debug\TestApp.csproj.AssemblyReference.cache
+F:\01.Upwork_Customers\Draco\TestDraco\TestApp\obj\Debug\TestApp.csproj.CoreCompileInputs.cache
+F:\01.Upwork_Customers\Draco\TestDraco\TestApp\obj\Debug\TestApp.exe
+F:\01.Upwork_Customers\Draco\TestDraco\TestApp\obj\Debug\TestApp.pdb

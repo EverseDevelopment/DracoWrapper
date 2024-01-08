@@ -1,4 +1,4 @@
-name: Build and Package
+name: C++ and C# CI
 
 on:
   push:
@@ -7,35 +7,28 @@ on:
     branches: [ main ]
 
 jobs:
-  build:
+  build_cpp:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up C++ environment
+      run: sudo apt-get update && sudo apt-get install build-essential
+    - name: Build C++ project
+      run: |
+        g++ -o myCppApp myCppSource.cpp
+        ./myCppApp
+
+  build_csharp:
     runs-on: windows-latest
 
     steps:
     - uses: actions/checkout@v2
-
-    - name: Setup .NET
+    - name: Set up .NET Core
       uses: actions/setup-dotnet@v1
       with:
-        dotnet-version: '5.0.x' # Specify the .NET version
-
-    - name: Restore dependencies
-      run: dotnet restore
-
-    - name: Build
-      run: dotnet build ./TestApp/TestApp.csproj --configuration Release --no-restore
-
-    - name: Test
-      run: dotnet test --no-restore --verbosity normal
-
-    - name: Pack
-      run: dotnet pack --configuration Release --no-build --output nupkgs
-
-    - name: Publish NuGet Package
-      uses: rohith/publish-nuget@v2
-      with:
-        # NuGet package id, e.g., 'Draco_transcoder'
-        PACKAGE_NAME: 'Draco_transcoder' 
-        # Path to the .nupkg file or the project directory
-        PROJECT_FILE_PATH: './path/to/your/csproj/or/nupkg'
-        # NuGet api key
-        NUGET_KEY: ${{secrets.NUGET_API_KEY}}
+        dotnet-version: '3.1.301' # Set this to your .NET Core version
+    - name: Build C# project
+      run: dotnet build MyCsharpProject.sln
+    - name: Run C# project
+      run: dotnet run --project MyCsharpProject/MyCsharpProject.csproj

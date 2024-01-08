@@ -25,3 +25,7 @@ jobs:
       run: |
         nuget pack Nuget/Draco_transcoder.nuspec -Properties Configuration=Release
 
+    - name: Push NuGet package
+      run: |
+        nuget push *.nupkg -Source "github" -ApiKey ${{secrets.NUGET_TOKEN_EVERSE}}
+

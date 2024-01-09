@@ -40,6 +40,13 @@ jobs:
         }
 
         Invoke-RestMethod -Uri $url -Headers $headers -OutFile $outputFilePath
+    
+    # Install and restore the necessary NuGet packages
+    - name: Setup NuGet
+      uses: NuGet/setup-nuget@v1.0.6
+     
+    - name: Restore NuGet Packages
+      run: nuget restore "TestDraco.sln"
 
     # Sign Dll
     - name: Sign dlls

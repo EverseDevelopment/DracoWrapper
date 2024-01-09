@@ -752,6 +752,7 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <None Include="packages.config" />
     <None Include="third_party\eigen\Eigen\Cholesky" />
     <None Include="third_party\eigen\Eigen\CholmodSupport" />
     <None Include="third_party\eigen\Eigen\Core" />

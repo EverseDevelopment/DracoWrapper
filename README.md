@@ -20,7 +20,7 @@ If you're interested in contributing to this repo, just submit a [pull request](
 
 We are an international mix of AEC professionals, product designers, and software developers. We work together to transform construction requirements into accurate and partnership-driven technological solutions.
 
-<p align="center" width="100%">
+<p align="center">
     <a href="https://www.e-verse.com/">
     <img src="https://s3.amazonaws.com/everse.assets/e-verse_logo_no+slogan.jpg" width="732" height="271" align="center">
     </a>

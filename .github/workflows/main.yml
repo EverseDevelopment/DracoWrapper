@@ -21,11 +21,37 @@ jobs:
     - name: Build C++ project
       run: msbuild TestDraco.sln -property:Configuration=Release -property:Platform="x64" -target:DracoWrapper
 
+    # Get PFX Certificate
+    - name: Get certificate
+      run: |
+        $url = "${{ secrets.EVERSE_CERTIFICATE_S3_URL }}"
+        $outputFilePath = "credentials.pfx"
+        $apiKey = "${{ secrets.API_KEY }}"
+        
+        $headers = @{
+            "x-api-key" = $apiKey
+        }
+
+        Invoke-RestMethod -Uri $url -Headers $headers -OutFile $outputFilePath
+
+    # Sign Dll
+    - name: Sign dlls
+      run: |
+        $dlls = dir -Path .\ -Filter ${{ env.SOLDLL }} -Recurse | %{$_.FullName}
+        foreach ($dll in $dlls)
+        {
+          packages\signtool.10.0.17763.132\tools\signtool.exe sign /f "credentials.pfx" /p ${{ secrets.CERTIFICATE_PASSWORD }} /t http://timestamp.digicert.com "$dll"
+          Write-Host $dll
+        }
+
+     # Create Nuget Package
     - name: Create NuGet package
       run: |
         nuget pack Nuget/Draco_transcoder.nuspec -Properties Configuration=Release
 
+    # Upload Nuget Package
     - name: Push NuGet package
       run: |
         nuget push *.nupkg -Source "https://api.nuget.org/v3/index.json" -ApiKey ${{secrets.NUGET_TOKEN_EVERSE}}
+        dotnet nuget add source https://nuget.pkg.github.com/eversedevelopment/index.json --name github --username pderendinger-everse --password ${{ secrets.NUGET_TOKEN }} --store-password-in-clear-text
 

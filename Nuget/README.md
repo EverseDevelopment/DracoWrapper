@@ -1,0 +1,1 @@
+Library using google's Draco Compression to compress GLTF and GLB files

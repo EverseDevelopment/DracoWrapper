@@ -8,7 +8,14 @@ on:
 
 jobs:
   build_and_run:
-    runs-on: windows-latest 
+    runs-on: windows-latest
+    env:
+      SOLNAME: SOLUTIONNAME
+      SOLSLN: SOLUTIONNAME.sln
+      SOLDLL: SOLUTIONNAME.dll
+    outputs:
+      Version: ${{ steps.gitversion.outputs.nuGetVersionV2 }} 
+      CommitsSinceVersionSource: ${{ steps.gitversion.outputs.CommitsSinceVersionSource }}   
 
     steps:
     - uses: actions/checkout@v2
@@ -37,7 +44,7 @@ jobs:
     # Sign Dll
     - name: Sign dlls
       run: |
-        $dlls = dir -Path .\ -Recurse | %{$_.FullName}
+        $dlls = dir -Path .\ -Filter "DracoWrapper.dll" -Recurse | %{$_.FullName}
         foreach ($dll in $dlls)
         {
           packages\signtool.10.0.17763.132\tools\signtool.exe sign /f "credentials.pfx" /p ${{ secrets.EVERSE_CERTIFICATE_KEY }} /t http://timestamp.digicert.com "$dll"

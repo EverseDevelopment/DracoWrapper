@@ -10,6 +10,18 @@
 # About
 This a wrapper project to use google's [Draco Compression](https://github.com/google/draco) algorithm with C#
 
+# How to use
+
+```C#
+            var decoder = new GltfDecoder();
+            var res = decoder.DecodeFromFileToScene(fileToCompress);
+            var scene = res.Value();
+            DracoCompressionOptions options = new DracoCompressionOptions();
+            SceneUtils.SetDracoCompressionOptions(options, scene);
+            var encoder = new GltfEncoder();
+            encoder.EncodeSceneToFile(scene, fileToCompressTemp);
+```
+
 ## Contributors
 This repo is primarily managed by [E-verse](https://www.e-verse.co/) and by [People Like You™](https://github.com/EverseDevelopment/DracoWrapper/pulse).
 

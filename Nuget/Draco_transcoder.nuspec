@@ -7,7 +7,7 @@
     <authors>e-verse</authors>
     <owners>e-verse</owners>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <license>https://licenses.nuget.org/MIT</license>
+    <license type="expression">MIT</license>
     <readme>README.md</readme>
     <icon>EverseLogo.png</icon>
     <projectUrl>https://github.com/EverseDevelopment/DracoWrapper</projectUrl>
@@ -19,7 +19,6 @@
   <files>
     <file src="..\x64\Release\DracoWrapper.dll" target="lib\net471\DracoWrapper.dll" />
     <file src="EverseLogo.png" target="EverseLogo.png" />
-    <file src="License.txt" target="License.txt" />
     <file src="README.md" target="README.md" />
   </files>
 </package>

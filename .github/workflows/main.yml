@@ -59,6 +59,6 @@ jobs:
     # Upload Nuget Package
     - name: Push NuGet package
       run: |
-        nuget push *.nupkg -Source "https://api.nuget.org/v3/index.json" -ApiKey ${{secrets.NUGET_TOKEN_EVERSE}}
+        nuget push *.nupkg -Source "https://api.nuget.org/v3/index.json" -ApiKey ${{secrets.NUGET_TOKEN_EVERSE}} -SkipDuplicate
         dotnet nuget add source https://nuget.pkg.github.com/eversedevelopment/index.json --name github --username pderendinger-everse --password ${{ secrets.NUGET_TOKEN }} --store-password-in-clear-text
 

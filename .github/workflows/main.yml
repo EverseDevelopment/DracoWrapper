@@ -27,5 +27,5 @@ jobs:
 
     - name: Push NuGet package
       run: |
-        nuget push *.nupkg -Source "github" -ApiKey ${{secrets.NUGET_TOKEN_EVERSE}}
+        nuget push *.nupkg -Source "https://api.nuget.org/v3/index.json" -ApiKey ${{secrets.NUGET_TOKEN_EVERSE}}
 

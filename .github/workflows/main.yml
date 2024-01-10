@@ -26,7 +26,7 @@ jobs:
 
     # Build C++ project
     - name: Build C++ project
-      run: msbuild TestDraco.sln -property:Configuration=Release -property:Platform="x64" -target:DracoWrapper
+      run: msbuild Draco.sln -property:Configuration=Release -property:Platform="x64" -target:DracoWrapper
 
     # Get PFX Certificate
     - name: Get certificate
@@ -46,7 +46,7 @@ jobs:
       uses: NuGet/setup-nuget@v1.0.6
      
     - name: Restore NuGet Packages
-      run: nuget restore "TestDraco.sln"
+      run: nuget restore "Draco.sln"
 
     # Sign Dll
     - name: Sign dlls

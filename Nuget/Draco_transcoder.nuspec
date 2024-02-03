@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
   <metadata>
     <id>Draco_transcoder</id>
-    <version>3.3.3</version>
+    <version>3.3.4</version>
     <title>Draco_transcoder</title>
     <authors>e-verse</authors>
     <owners>e-verse</owners>
@@ -13,7 +13,7 @@
     <projectUrl>https://github.com/EverseDevelopment/DracoWrapper</projectUrl>
     <description>Library using google's Draco Compression to compress GLTF and GLB files</description>
     <releaseNotes>Latest Release</releaseNotes>
-    <copyright>Copyright ©  2023</copyright>
+    <copyright>Copyright ©  2024</copyright>
     <tags>Draco e-verse</tags>
   </metadata>
   <files>

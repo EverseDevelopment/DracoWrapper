@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
   <metadata>
     <id>Draco_transcoder</id>
-    <version>3.3.4</version>
+    <version>3.5.0</version>
     <title>Draco_transcoder</title>
     <authors>e-verse</authors>
     <owners>e-verse</owners>
@@ -12,12 +12,15 @@
     <icon>EverseLogo.png</icon>
     <projectUrl>https://github.com/EverseDevelopment/DracoWrapper</projectUrl>
     <description>Library using google's Draco Compression to compress GLTF and GLB files</description>
-    <releaseNotes>Latest Release</releaseNotes>
-    <copyright>Copyright ©  2024</copyright>
+    <releaseNotes>Update package to be used with .NET Core</releaseNotes>
+    <copyright>Copyright © 2024</copyright>
     <tags>Draco e-verse</tags>
+    <dependencies>
+      <group targetFramework=".NETCoreApp8.0" />
+    </dependencies>
   </metadata>
   <files>
-    <file src="..\x64\Release\DracoWrapper.dll" target="lib\net471\DracoWrapper.dll" />
+    <file src="..\x64\Release\DracoWrapper.dll" target="lib\netcoreapp8.0\DracoWrapper.dll" />
     <file src="EverseLogo.png" target="EverseLogo.png" />
     <file src="README.md" target="README.md" />
   </files>
